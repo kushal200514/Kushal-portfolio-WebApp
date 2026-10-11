@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   ArrowDownRight,
   FileText,
@@ -176,8 +177,49 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Custom Architectural Telemetry Showcase */}
-          <div className="lg:col-span-5">
+          {/* Right Column: Profile Portrait & Architectural Telemetry Showcase */}
+          <div className="lg:col-span-5 space-y-4">
+            {/* Engineer Profile Card */}
+            <div className="p-3.5 bg-[#0d0f15] border border-[#232838] flex items-center gap-4 relative overflow-hidden group">
+              <div className="relative w-16 h-20 sm:w-20 sm:h-24 shrink-0 bg-[#07080b] border border-[#d4ff00] overflow-hidden">
+                <Image
+                  src="/kushal-portrait.png"
+                  alt="Kushal S — Software Engineer"
+                  fill
+                  sizes="96px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+              </div>
+
+              <div className="flex-1 min-w-0 font-mono">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
+                  </span>
+                  <span className="text-xs font-bold text-[#f8fafc] truncate">
+                    KUSHAL S.
+                  </span>
+                  <span className="text-[10px] text-[#d4ff00] bg-[#d4ff00]/10 px-1.5 py-0.5 border border-[#d4ff00]/30 ml-auto shrink-0">
+                    CMR &apos;28
+                  </span>
+                </div>
+
+                <div className="text-[11px] text-[#cbd5e1] truncate">
+                  Full Stack Developer // SWE
+                </div>
+
+                <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-[#94a3b8] mt-1.5">
+                  <span className="text-[#38bdf8]">CGPA 8.7/10</span>
+                  <span className="text-[#64748b]">·</span>
+                  <span>ATS-Tech Intern</span>
+                  <span className="text-[#64748b]">·</span>
+                  <span className="text-[#f59e0b]">IoTopia Top 10</span>
+                </div>
+              </div>
+            </div>
+
             <div className="relative bg-[#0d0f15] border border-[#232838] p-5 shadow-2xl">
               {/* Header bar */}
               <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#1e2433]">

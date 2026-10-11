@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import {
   X,
   Download,
@@ -98,6 +99,29 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 flex-1 overflow-hidden min-h-[480px]">
           {/* Left: Summary Dossier */}
           <div className="lg:col-span-4 p-5 sm:p-6 bg-[#07080b] border-r border-[#1e2433] overflow-y-auto space-y-6 font-mono text-xs">
+            <div className="flex items-center gap-3.5 pb-4 border-b border-[#1e2433]">
+              <div className="relative w-14 h-16 shrink-0 bg-[#07080b] border border-[#d4ff00] overflow-hidden">
+                <Image
+                  src="/kushal-portrait.png"
+                  alt="Kushal S"
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-[#f8fafc]">
+                  Kushal S
+                </div>
+                <div className="text-[11px] text-[#d4ff00]">
+                  Full Stack SWE Intern
+                </div>
+                <div className="text-[10px] text-[#94a3b8]">
+                  CMR Univ &apos;28 · CGPA 8.7
+                </div>
+              </div>
+            </div>
+
             <div>
               <span className="text-[10px] text-[#64748b] uppercase tracking-wider block">
                 POSITIONING
