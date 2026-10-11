@@ -14,6 +14,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ResumeModal from "@/components/ResumeModal";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -49,6 +50,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#07080b] text-[#f8fafc] flex flex-col selection:bg-[#d4ff00] selection:text-[#07080b]">
+      {/* Interactive Cursor Animations & Flashlight Glow */}
+      <CustomCursor />
+
       {/* Navigation Header */}
       <Header onOpenResume={() => setResumeOpen(true)} />
 
