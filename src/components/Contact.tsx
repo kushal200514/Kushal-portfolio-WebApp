@@ -11,6 +11,8 @@ import {
   ExternalLink,
   MessageSquare,
   Sparkles,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import { LinkedInIcon, GitHubIcon, LeetCodeIcon } from "@/components/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
@@ -21,7 +23,9 @@ interface ContactProps {
 
 export default function Contact({ onOpenResume }: ContactProps) {
   const [copied, setCopied] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,19 +39,64 @@ export default function Contact({ onOpenResume }: ContactProps) {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
-    // Create pre-filled mailto as reliable fallback
+
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${PORTFOLIO_DATA.profile.email}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            _replyto: formData.email,
+            _subject: formData.subject || `New Portfolio Inquiry from ${formData.name}`,
+            message: formData.message,
+            _template: "table",
+            _captcha: "false",
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok && result.success !== "false") {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(
+          result.message || "Failed to transmit message directly. Please try again or use direct mail."
+        );
+      }
+    } catch (err: unknown) {
+      console.error("Direct mail send error:", err);
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Network error sending email. You can also send directly via your mail client."
+      );
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleMailtoFallback = () => {
     const mailtoUrl = `mailto:${PORTFOLIO_DATA.profile.email}?subject=${encodeURIComponent(
-      formData.subject || `Message from ${formData.name}`
+      formData.subject || `Inquiry from ${formData.name}`
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
-
     window.location.href = mailtoUrl;
-    setFormSubmitted(true);
   };
 
   return (
@@ -199,24 +248,46 @@ export default function Contact({ onOpenResume }: ContactProps) {
               </h3>
             </div>
 
-            {formSubmitted ? (
-              <div className="p-8 text-center space-y-3 bg-[#07080b] border border-[#1e2433]">
-                <Check className="w-8 h-8 text-[#10b981] mx-auto" />
-                <h4 className="text-lg font-bold text-[#f8fafc]">Inquiry Initiated!</h4>
-                <p className="text-xs text-[#94a3b8] font-mono max-w-md mx-auto">
-                  Your mail client has been opened with your inquiry pre-filled to{" "}
-                  <strong className="text-[#cbd5e1]">{PORTFOLIO_DATA.profile.email}</strong>.
-                  I look forward to speaking with you!
+            {submitStatus === "success" ? (
+              <div className="p-8 text-center space-y-4 bg-[#07080b] border border-[#10b981]/40">
+                <div className="w-12 h-12 mx-auto rounded-full bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center">
+                  <Check className="w-6 h-6 text-[#10b981]" />
+                </div>
+                <h4 className="text-lg font-bold text-[#f8fafc]">
+                  Inquiry Dispatched Successfully!
+                </h4>
+                <p className="text-xs text-[#94a3b8] font-mono max-w-md mx-auto leading-relaxed">
+                  Your message has been delivered directly to Kushal&apos;s personal inbox at{" "}
+                  <strong className="text-[#d4ff00] font-bold">{PORTFOLIO_DATA.profile.email}</strong>.
+                  You should receive a response shortly.
                 </p>
                 <button
-                  onClick={() => setFormSubmitted(false)}
-                  className="mt-4 px-4 py-2 bg-[#171b26] text-xs font-mono text-[#cbd5e1] border border-[#232838]"
+                  onClick={() => setSubmitStatus("idle")}
+                  className="mt-2 px-5 py-2.5 bg-[#171b26] hover:bg-[#202636] text-xs font-mono text-[#cbd5e1] hover:text-[#d4ff00] border border-[#232838] transition-colors"
                 >
-                  Send another message
+                  Send another inquiry
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {submitStatus === "error" && (
+                  <div className="p-4 bg-[#ef4444]/10 border border-[#ef4444]/30 space-y-2 text-xs font-mono">
+                    <div className="flex items-center gap-2 text-[#ef4444] font-bold">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>Direct Transmission Notice</span>
+                    </div>
+                    <p className="text-[#cbd5e1]">{errorMessage}</p>
+                    <button
+                      type="button"
+                      onClick={handleMailtoFallback}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#171b26] hover:bg-[#202636] text-[#d4ff00] border border-[#232838] transition-colors"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Open in Default Mail Client</span>
+                    </button>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label
@@ -227,6 +298,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                     </label>
                     <input
                       id="contact-name"
+                      name="name"
                       type="text"
                       required
                       placeholder="Jane Doe (Acme Corp)"
@@ -245,6 +317,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                     </label>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
                       required
                       placeholder="jane@company.com"
@@ -264,6 +337,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   </label>
                   <input
                     id="contact-subject"
+                    name="subject"
                     type="text"
                     placeholder="Software Engineering Internship / Full Stack Role"
                     value={formData.subject}
@@ -281,6 +355,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   </label>
                   <textarea
                     id="contact-message"
+                    name="message"
                     required
                     rows={4}
                     placeholder="We loved your Khoon and AtmosAi projects and would love to interview you for an engineering role..."
@@ -292,14 +367,24 @@ export default function Contact({ onOpenResume }: ContactProps) {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#d4ff00] hover:bg-[#c2ea00] text-[#07080b] font-mono font-bold text-xs uppercase tracking-wider transition-all duration-150 active:translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#d4ff00] hover:bg-[#c2ea00] disabled:bg-[#d4ff00]/60 disabled:cursor-not-allowed text-[#07080b] font-mono font-bold text-xs uppercase tracking-wider transition-all duration-150 active:translate-y-0.5"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Send Direct Message</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Transmitting Message to Kushal&apos;s Email...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Send Direct Message</span>
+                    </>
+                  )}
                 </button>
 
                 <p className="text-[11px] font-mono text-[#64748b] text-center pt-1">
-                  Transmits directly to kushalsrinivas883@gmail.com with zero spam retention.
+                  Transmits directly to kushalsrinivas883@gmail.com with instant notification.
                 </p>
               </form>
             )}
