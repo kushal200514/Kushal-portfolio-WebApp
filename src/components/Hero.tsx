@@ -82,7 +82,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </div>
             <span className="text-[#64748b] hidden md:inline">|</span>
             <span className="hidden md:inline text-[#d4ff00]">
-              CMR UNIV · CGPA 8.7
+              CMR UNIVERSITY · CGPA 8.6
             </span>
           </div>
         </div>
@@ -92,14 +92,14 @@ export default function Hero({ onOpenResume }: HeroProps) {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#12151e] border border-[#232838] text-[11px] font-mono tracking-widest uppercase text-[#cbd5e1]">
               <span className="w-1.5 h-1.5 bg-[#d4ff00]" />
-              FULL STACK DEVELOPER // SOFTWARE ENGINEER
+              FULL STACK DEVELOPER // ASPIRING AI ENGINEER
             </div>
 
             {/* Oversized editorial headline */}
             <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight leading-[1.03] text-[#f8fafc]">
-              I BUILD <br />
-              <span className="text-[#d4ff00]">DIGITAL SYSTEMS</span> <br />
-              THAT ACTUALLY WORK.
+              MY<br />
+              <span className="text-[#d4ff00]">INTRODUCTION.</span> <br />
+              
             </h1>
 
             {/* Authentic, human description */}
@@ -117,7 +117,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 href="#work"
                 className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#d4ff00] hover:bg-[#c2ea00] text-[#07080b] font-mono font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-lg shadow-[#d4ff00]/10 active:translate-y-0.5"
               >
-                <span>Explore Selected Work</span>
+                <span>Explore Projects</span>
                 <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
               </a>
 
@@ -202,16 +202,16 @@ export default function Hero({ onOpenResume }: HeroProps) {
                     KUSHAL S.
                   </span>
                   <span className="text-[10px] text-[#d4ff00] bg-[#d4ff00]/10 px-1.5 py-0.5 border border-[#d4ff00]/30 ml-auto shrink-0">
-                    CMR &apos;28
+                    CMRU &apos;28
                   </span>
                 </div>
 
                 <div className="text-[11px] text-[#cbd5e1] truncate">
-                  Full Stack Developer // SWE
+                  Full Stack Developer // ASPIRING AI ENGINEER
                 </div>
 
                 <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-[#94a3b8] mt-1.5">
-                  <span className="text-[#38bdf8]">CGPA 8.7/10</span>
+                  <span className="text-[#38bdf8]">CGPA 8.6/10</span>
                   <span className="text-[#64748b]">·</span>
                   <span>ATS-Tech Intern</span>
                   <span className="text-[#64748b]">·</span>
@@ -346,7 +346,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#64748b]">Cumulative GPA:</span>
-                      <span className="text-[#d4ff00] font-bold">8.7 / 10.0</span>
+                      <span className="text-[#d4ff00] font-bold">8.6 / 10.0</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#64748b]">Past Internship:</span>

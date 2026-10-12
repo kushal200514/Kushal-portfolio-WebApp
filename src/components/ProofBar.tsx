@@ -14,7 +14,7 @@ export default function ProofBar() {
     },
     {
       icon: GraduationCap,
-      title: "8.7 / 10 CGPA",
+      title: "8.6 / 10 CGPA",
       detail: "CMR University (B.Tech CSE '28)",
       accent: "text-[#38bdf8]",
     },
@@ -26,7 +26,7 @@ export default function ProofBar() {
     },
     {
       icon: Code,
-      title: "50+ DSA PROBLEMS",
+      title: "100+ DSA PROBLEMS",
       detail: "LeetCode & CodeChef (Reported)",
       accent: "text-[#f59e0b]",
     },

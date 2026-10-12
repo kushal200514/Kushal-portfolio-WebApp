@@ -3,13 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import {
-  Award,
   ExternalLink,
   ZoomIn,
   X,
   FileCheck2,
   Calendar,
-  CheckCircle,
   Download,
   ShieldCheck,
 } from "lucide-react";

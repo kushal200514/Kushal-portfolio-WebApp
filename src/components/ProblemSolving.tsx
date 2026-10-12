@@ -60,7 +60,7 @@ export default function ProblemSolving() {
               <div className="p-3 bg-[#07080b] border border-[#1e2433] space-y-1 text-xs font-mono">
                 <div className="text-[#38bdf8] font-bold">ACADEMIC / COURSEWORK GROUNDING:</div>
                 <div className="text-[#cbd5e1]">
-                  Completed 10-Hour &ldquo;Design and Analysis of Algorithms&rdquo; under Dr. Johnson Kolluri (Certified April 2026).
+                  Completed -Striver A2Z Sheet For DSA
                 </div>
               </div>
 
@@ -114,7 +114,7 @@ export default function ProblemSolving() {
 
             <div className="mt-6 pt-4 border-t border-[#1e2433] flex items-center justify-between text-xs font-mono text-[#94a3b8]">
               <span>CORE LANGUAGE FOR DSA:</span>
-              <span className="text-[#f8fafc] font-bold">Java &amp; Python</span>
+              <span className="text-[#f8fafc] font-bold">  Python</span>
             </div>
           </div>
         </div>

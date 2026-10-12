@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Award, GraduationCap, BookOpen, Calendar, CheckCircle2, Trophy, Star } from "lucide-react";
+import { Award, GraduationCap, BookOpen, Calendar, Trophy } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export default function AchievementsEducation() {

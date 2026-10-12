@@ -109,7 +109,7 @@ export default function Projects() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-6 border-b border-[#1e2433]/80 font-mono text-xs">
                     <div className="flex items-center gap-3">
                       <span className="text-xl font-black text-[#64748b]">
-                        0{index + 1} //
+                        0{index + 1} {"//"}
                       </span>
                       <span className="text-[#f8fafc] font-bold text-sm">
                         {project.title.toUpperCase()}

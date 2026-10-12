@@ -50,13 +50,13 @@ export const PORTFOLIO_DATA = {
   profile: {
     name: "Kushal S",
     role: "Full Stack Developer / Software Engineer",
-    tagline: "I BUILD DIGITAL SYSTEMS THAT ACTUALLY WORK.",
+    tagline: "My Introduction.",
     bio: "Full Stack Developer and Computer Science undergraduate at CMR University, Bengaluru. Experienced in building production web applications, secure REST APIs, and event-driven architectures. Former Full Stack Developer Intern at ATS-Technologies with competitive hackathon pedigree.",
     location: "Bengaluru, India",
     university: "CMR University, Bengaluru",
     degree: "B.Tech in Computer Science and Engineering",
     educationDates: "September 2024 – July 2028",
-    cgpa: "8.7 / 10",
+    cgpa: "8.6 / 10",
     email: "kushalsrinivas883@gmail.com",
     phone: "+91 8660031165",
     domain: "kushalcreates.online",
@@ -64,14 +64,14 @@ export const PORTFOLIO_DATA = {
     linkedinUrl: "https://www.linkedin.com/in/kushal-s-9483902b8/",
     leetcodeUrl: "https://leetcode.com/u/kushal1405/",
     resumeUrl: "/resume.pdf",
-    availability: "Available for Software Engineering & Full Stack Internships",
+    availability: "Available for Any Technical Roles",
   },
 
   metrics: [
     { label: "IoTopia Hackathon 2025", value: "Top 10 Team", sub: "REVA University Finalist" },
-    { label: "Academic Standing", value: "8.7 CGPA", sub: "CMR University (B.Tech CSE)" },
+    { label: "Academic Standing", value: "8.6 CGPA", sub: "CMR University (B.Tech CSE)" },
     { label: "Professional Experience", value: "Full Stack Intern", sub: "ATS-Technologies" },
-    { label: "Algorithmic Practice", value: "50+ Solved", sub: "LeetCode & CodeChef (Reported)" },
+    { label: "Algorithmic Practice", value: "100+ Solved", sub: "LeetCode & CodeChef (Reported)" },
     { label: "Active Codebases", value: "5+ Systems", sub: "Public GitHub Repositories" },
   ],
 
@@ -250,6 +250,17 @@ export const PORTFOLIO_DATA = {
         "Recognized among the Top 10 teams at IOTOPIA 2025 for developing an innovative technology solution addressing sustainable and smart cities challenges.",
     },
     {
+      id: "vyuhatech-hackathon",
+      title: "VYUHATECH 2.0 National Level Hackathon",
+      issuer: "CMR Institute of Technology (CMRIT, Bengaluru)",
+      date: "October 8–9, 2025",
+      idNumber: "Certificate ID: V25CMR494",
+      imagePath: "/certificates/vyuhatech-hackathon-2025.png",
+      type: "Hackathon",
+      description:
+        "24-Hour National Level Hackathon organized at CMRIT under Maker Space and MHRD Innovation Cell. Awarded Certificate of Participation for dedication, innovative ideas, and collaborative development towards sustainable solutions.",
+    },
+    {
       id: "agile-scrum-master",
       title: "Agile Scrum Master",
       issuer: "Simplilearn SkillUp",
@@ -269,6 +280,40 @@ export const PORTFOLIO_DATA = {
       type: "Certification",
       description:
         "Practical engineering applications of Large Language Models, prompt orchestration, agentic workflows, and AI product integration.",
+    },
+    {
+      id: "udemy-python-bootcamp",
+      title: "Complete 2026 Python Bootcamp: Learn Python from Scratch",
+      issuer: "Udemy",
+      date: "May 16, 2026",
+      idNumber: "UC-500768a0-3260-43fb-a92e-474744a8f7b6",
+      verifyUrl: "https://ude.my/UC-500768a0-3260-43fb-a92e-474744a8f7b6",
+      imagePath: "/certificates/udemy-python-bootcamp.png",
+      type: "Course",
+      description:
+        "17.5 total hours of in-depth training covering Python fundamentals, object-oriented architecture, data manipulation, and modern automation scripting instructed by Haris Ali Khan.",
+    },
+    {
+      id: "infosys-python-advanced",
+      title: "Python Advanced Training: 2022",
+      issuer: "Infosys Springboard",
+      date: "July 30, 2025",
+      verifyUrl: "https://verify.onwingspan.com",
+      imagePath: "/certificates/infosys-springboard-python-advanced.png",
+      type: "Course",
+      description:
+        "Enterprise-grade Python advanced curriculum certified by Infosys Springboard under Education, Training & Assessment (ETA), covering functional programming, efficiency, and modular code design.",
+    },
+    {
+      id: "be10x-ai-tools",
+      title: "AI Tools and ChatGPT Workshop",
+      issuer: "be10x",
+      date: "March 15, 2026",
+      idNumber: "Verified Certification",
+      imagePath: "/certificates/be10x-ai-tools-workshop.png",
+      type: "Certification",
+      description:
+        "Hands-on workshop certification in generative AI workflows: rapid presentation generation, analytical data processing with AI, and AI-assisted software debugging.",
     },
   ] as CertificateItem[],
 
@@ -296,7 +341,7 @@ export const PORTFOLIO_DATA = {
     summary:
       "Consistent problem-solving across LeetCode and CodeChef, focusing on optimal time and space complexity, algorithmic correctness, and pattern recognition.",
     profileUrl: "https://leetcode.com/u/kushal1405/",
-    reportedStats: "50+ DSA Problems Solved",
+    reportedStats: "100+ DSA Problems Solved",
     verificationNote:
       "Stat is a resume-reported achievement across LeetCode & CodeChef. Real-time statistics, contest activity, and solution submissions can be verified directly on my public LeetCode profile.",
     topics: [
@@ -398,7 +443,15 @@ export const PORTFOLIO_DATA = {
       highlight: "AWS Cloud & AI",
     },
     {
-      title: "50+ DSA Problems Solved",
+      title: "VYUHATECH 2.0 24hr National Hackathon Participant",
+      issuer: "CMRIT Bengaluru (MHRD Innovation Cell)",
+      date: "October 2025",
+      description:
+        "Participated in the 24-hour national-level hackathon organized at CMRIT under Maker Space and MHRD Innovation Cell towards sustainable development.",
+      highlight: "24-Hour National Hackathon",
+    },
+    {
+      title: "100+ DSA Problems Solved",
       issuer: "LeetCode & CodeChef",
       date: "Ongoing",
       description:
@@ -411,7 +464,7 @@ export const PORTFOLIO_DATA = {
     institution: "CMR University, Bengaluru",
     degree: "Bachelor of Technology in Computer Science and Engineering",
     period: "September 2024 – July 2028",
-    cgpa: "8.7 / 10",
+    cgpa: "8.6/ 10",
     status: "Currently Enrolled (Undergraduate)",
     coursework: [
       "Data Structures & Algorithms",

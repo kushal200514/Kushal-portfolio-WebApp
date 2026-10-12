@@ -62,7 +62,7 @@ export default function Home() {
       {/* Facts & Proof Bar */}
       <ProofBar />
 
-      {/* Selected Work & Case Studies (With Hackathon Live Workspace) */}
+      {/* & Case Studies (With Hackathon Live Workspace) */}
       <Projects />
 
       {/* Verified Certificates & Hackathons (Udemy, Google Cloud, IoTopia, etc.) */}
@@ -77,7 +77,7 @@ export default function Home() {
       {/* Problem Solving & DSA Practice (LeetCode & CodeChef) */}
       <ProblemSolving />
 
-      {/* Education & Academic Credentials (CMR University CGPA 8.7) */}
+      {/* Education & Academic Credentials (CMR University CGPA 8.6) */}
       <AchievementsEducation />
 
       {/* About & Perspective */}

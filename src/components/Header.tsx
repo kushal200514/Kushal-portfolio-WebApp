@@ -55,7 +55,7 @@ export default function Header({ onOpenResume }: HeaderProps) {
   }, []);
 
   const navLinks = [
-    { name: "Selected Work", href: "#work", id: "work" },
+    { name: "Projects", href: "#work", id: "work" },
     { name: "Certificates", href: "#certificates", id: "certificates" },
     { name: "Tech Stack", href: "#skills", id: "skills" },
     { name: "Experience", href: "#experience", id: "experience" },
@@ -106,7 +106,7 @@ export default function Header({ onOpenResume }: HeaderProps) {
                 KUSHAL S.
               </span>
               <span className="text-[10px] font-mono tracking-widest text-[#94a3b8] uppercase">
-                SWE // Full Stack
+                 Full Stack/Ai Engineer
               </span>
             </div>
           </Link>

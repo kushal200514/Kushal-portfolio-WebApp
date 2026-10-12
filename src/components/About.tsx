@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Terminal, Shield, Cpu, Code2, Check, MapPin, GraduationCap, Award } from "lucide-react";
+import { Terminal, Check, MapPin } from "lucide-react";
 
 export default function About() {
   return (
@@ -43,10 +43,10 @@ export default function About() {
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-[#94a3b8]">
                     <MapPin className="w-3 h-3 text-[#ef4444]" />
-                    <span>Bengaluru, India · CMR Univ &apos;28</span>
+                    <span>Bengaluru, India · CMR University &apos;28</span>
                   </div>
                   <div className="text-[10px] text-[#d4ff00]">
-                    CGPA 8.7/10 · ATS-Technologies Intern
+                    CGPA 8.6/10 · ATS-Technologies Intern
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function About() {
           {/* Right Column: Grounded narrative */}
           <div className="lg:col-span-7 space-y-6 text-[#94a3b8] text-sm sm:text-base leading-relaxed">
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#f8fafc] leading-tight">
-              ENGINEERING FOR RELIABILITY OVER NOISE.
+              I AM AN ASPIRING AND PASSIONATE DEVELOPER
             </h2>
 
             <p>

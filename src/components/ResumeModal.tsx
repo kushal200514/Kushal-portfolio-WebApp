@@ -60,7 +60,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 Kushal S — Official Curriculum Vitae
               </h3>
               <p className="text-xs font-mono text-[#94a3b8]">
-                B.Tech CSE · CMR University &apos;28 · CGPA 8.7/10
+                B.Tech CSE · CMR University &apos;28 · CGPA 8.6/10
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   Full Stack SWE Intern
                 </div>
                 <div className="text-[10px] text-[#94a3b8]">
-                  CMR Univ &apos;28 · CGPA 8.7
+                  CMR University &apos;28 · CGPA 8.6
                 </div>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </span>
               <div className="flex items-start gap-2 text-[#cbd5e1]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#d4ff00] shrink-0 mt-0.5" />
-                <span>CGPA 8.7/10 @ CMR University</span>
+                <span>CGPA 8.6/10 @ CMR University</span>
               </div>
               <div className="flex items-start gap-2 text-[#cbd5e1]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8] shrink-0 mt-0.5" />
@@ -152,7 +152,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </div>
               <div className="flex items-start gap-2 text-[#cbd5e1]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#f59e0b] shrink-0 mt-0.5" />
-                <span>50+ DSA Solved (LeetCode &amp; CodeChef)</span>
+                <span>100+ DSA Solved (LeetCode &amp; CodeChef)</span>
               </div>
             </div>
 

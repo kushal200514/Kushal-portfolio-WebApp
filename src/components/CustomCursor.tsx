@@ -27,11 +27,13 @@ export default function CustomCursor() {
       return;
     }
 
-    setMounted(true);
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
 
     const onMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+      setIsVisible((prev) => (prev ? prev : true));
 
       // Instantly position the small center dot
       if (dotRef.current) {
@@ -87,6 +89,7 @@ export default function CustomCursor() {
     rafId.current = requestAnimationFrame(render);
 
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
@@ -95,7 +98,7 @@ export default function CustomCursor() {
       document.body.removeEventListener("mouseenter", onMouseEnter);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [isVisible]);
+  }, []);
 
   if (!mounted) return null;
 
