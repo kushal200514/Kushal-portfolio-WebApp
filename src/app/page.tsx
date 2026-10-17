@@ -14,10 +14,11 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ResumeModal from "@/components/ResumeModal";
-import CustomCursor from "@/components/CustomCursor";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
+  const { toggleTheme } = useTheme();
 
   // Accessible keyboard shortcuts for tech recruiters
   useEffect(() => {
@@ -33,6 +34,8 @@ export default function Home() {
 
       if (e.key === "r" || e.key === "R") {
         setResumeOpen((prev) => !prev);
+      } else if (e.key === "t" || e.key === "T") {
+        toggleTheme();
       } else if (e.key === "w" || e.key === "W") {
         document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
       } else if (e.key === "c" || e.key === "C") {
@@ -50,9 +53,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#07080b] text-[#f8fafc] flex flex-col selection:bg-[#d4ff00] selection:text-[#07080b]">
-      {/* Interactive Cursor Animations & Flashlight Glow */}
-      <CustomCursor />
-
       {/* Navigation Header */}
       <Header onOpenResume={() => setResumeOpen(true)} />
 

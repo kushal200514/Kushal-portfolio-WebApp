@@ -10,14 +10,18 @@ import {
   Award,
   Code2,
   Terminal,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { LinkedInIcon, GitHubIcon } from "@/components/Icons";
+import { useTheme } from "@/context/ThemeContext";
 
 interface HeaderProps {
   onOpenResume: () => void;
 }
 
 export default function Header({ onOpenResume }: HeaderProps) {
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -133,6 +137,26 @@ export default function Header({ onOpenResume }: HeaderProps) {
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`}
+              title={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode (Shortcut: T)`}
+              className="p-2 text-[#94a3b8] hover:text-[#d4ff00] hover:bg-[#12151e] border border-[#1e2433] hover:border-[#d4ff00]/60 transition-colors flex items-center gap-1.5"
+            >
+              {theme === "dark" ? (
+                <>
+                  <Sun className="w-4 h-4 text-[#d4ff00]" />
+                  <span className="hidden xl:inline font-mono text-[10px] tracking-widest text-[#94a3b8] uppercase">LIGHT</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-4 h-4 text-[#0284c7]" />
+                  <span className="hidden xl:inline font-mono text-[10px] tracking-widest text-[#334155] uppercase">DARK</span>
+                </>
+              )}
+            </button>
+
             {/* LinkedIn verified link */}
             <a
               href="https://www.linkedin.com/in/kushal-s-9483902b8/"
@@ -167,10 +191,34 @@ export default function Header({ onOpenResume }: HeaderProps) {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Right Controls: Theme Toggle + Menu Button */}
+          <div className="flex sm:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`}
+              className="p-2 text-[#94a3b8] hover:text-[#d4ff00] hover:bg-[#12151e] border border-[#1e2433] transition-colors"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-[#d4ff00]" />
+              ) : (
+                <Moon className="w-4 h-4 text-[#0284c7]" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#f8fafc] hover:text-[#d4ff00] hover:bg-[#12151e] border border-[#1e2433] transition-colors"
+              aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+          {/* Desktop/Tablet Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#f8fafc] hover:text-[#d4ff00] hover:bg-[#12151e] border border-[#1e2433] transition-colors"
+            className="hidden sm:inline-flex lg:hidden p-2 text-[#f8fafc] hover:text-[#d4ff00] hover:bg-[#12151e] border border-[#1e2433] transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -199,6 +247,18 @@ export default function Header({ onOpenResume }: HeaderProps) {
             ))}
 
             <div className="pt-4 mt-2 border-t border-[#1e2433] flex flex-col gap-3">
+              {/* Mobile Drawer Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between px-4 py-2.5 bg-[#0d0f15] border border-[#1e2433] font-mono text-xs uppercase text-[#cbd5e1]"
+              >
+                <span className="flex items-center gap-2">
+                  {theme === "dark" ? <Sun className="w-4 h-4 text-[#d4ff00]" /> : <Moon className="w-4 h-4 text-[#0284c7]" />}
+                  <span>Active Theme: {theme.toUpperCase()}</span>
+                </span>
+                <span className="text-[10px] text-[#94a3b8]">SWITCH</span>
+              </button>
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

@@ -24,6 +24,33 @@
     --text-faint: #64748b;
   }
 
+  html.light {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --bg-surface: #e2e8f0;
+    --bg-surface-hover: #cbd5e1;
+    
+    --border-subtle: #e2e8f0;
+    --border-muted: #cbd5e1;
+    --border-bright: #94a3b8;
+    
+    --accent-lime: #15803d;
+    --accent-lime-dim: #166534;
+    --accent-lime-glow: rgba(21, 128, 61, 0.16);
+    --accent-cobalt: #0284c7;
+    --accent-cobalt-glow: rgba(2, 132, 199, 0.16);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-faint: #94a3b8;
+
+    color-scheme: light;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
   html {
     scroll-behavior: smooth;
     background-color: var(--bg-primary);
@@ -44,6 +71,188 @@
   ::selection {
     background-color: #d4ff00;
     color: #07080b;
+  }
+}
+
+/* ============================================================
+   LIGHT MODE ARCHITECTURAL MAPPINGS
+   Transforms all surfaces, borders, text, and components smoothly
+   ============================================================ */
+
+html.light body,
+html.light main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Backgrounds */
+html.light .bg-\[\#07080b\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#07080b\]\/90 {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+}
+
+html.light .bg-\[\#090b10\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-\[\#0d0f15\],
+html.light .bg-\[\#0c0e14\] {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+html.light .bg-\[\#0d0f15\]\/80 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.light .bg-\[\#12151e\],
+html.light .bg-\[\#131722\],
+html.light .bg-\[\#161a24\],
+html.light .bg-\[\#171b26\] {
+  background-color: #f1f5f9 !important;
+}
+
+/* Card hover states */
+html.light .hover\:bg-\[\#161a24\]:hover,
+html.light .hover\:bg-\[\#12151e\]:hover,
+html.light .hover\:bg-\[\#171b26\]:hover,
+html.light .hover\:bg-\[\#0d0f15\]:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* Borders */
+html.light .border-\[\#1e2433\],
+html.light .border-\[\#1e2433\]\/70,
+html.light .border-\[\#232838\],
+html.light .border-\[\#2a3347\],
+html.light .border-\[\#2b3447\],
+html.light .border-\[\#3f4d6b\] {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .hover\:border-\[\#2a3347\]:hover,
+html.light .hover\:border-\[\#2b3447\]:hover,
+html.light .hover\:border-\[\#38bdf8\]\/40:hover {
+  border-color: #cbd5e1 !important;
+}
+
+/* Text Hierarchy in Light Mode */
+html.light .text-\[\#f8fafc\] {
+  color: #0f172a !important;
+}
+
+html.light .text-\[\#cbd5e1\] {
+  color: #334155 !important;
+}
+
+html.light .text-\[\#94a3b8\] {
+  color: #475569 !important;
+}
+
+html.light .text-\[\#64748b\] {
+  color: #64748b !important;
+}
+
+/* High-Contrast Accents */
+html.light h1 .text-\[\#d4ff00\],
+html.light h2 .text-\[\#d4ff00\],
+html.light h3 .text-\[\#d4ff00\],
+html.light span.text-\[\#d4ff00\],
+html.light .text-\[\#d4ff00\] {
+  color: #15803d !important;
+}
+
+/* Lime Action Buttons retain energetic brand pop with high-contrast text */
+html.light .bg-\[\#d4ff00\] {
+  background-color: #d4ff00 !important;
+  color: #07080b !important;
+}
+
+html.light .hover\:bg-\[\#c2ea00\]:hover,
+html.light .hover\:bg-\[\#bce400\]:hover {
+  background-color: #bce400 !important;
+}
+
+/* Cobalt Accents */
+html.light .text-\[\#38bdf8\] {
+  color: #0284c7 !important;
+}
+
+html.light .hover\:text-\[\#38bdf8\]:hover {
+  color: #0284c7 !important;
+}
+
+/* Modal overlays in Light Mode */
+html.light .fixed.inset-0.z-50.bg-\[\#07080b\]\/90 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+/* Technical grid backgrounds in Light Mode */
+html.light .tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
+}
+
+html.light .tech-dot-bg {
+  background-image: radial-gradient(rgba(2, 132, 199, 0.22) 1px, transparent 1px) !important;
+}
+
+/* Custom scrollbar in Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 2px solid #f8fafc;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Interactive element focus outline in Light Mode */
+html.light a:focus-visible, 
+html.light button:focus-visible, 
+html.light input:focus-visible, 
+html.light textarea:focus-visible {
+  outline: 2px solid #0284c7 !important;
+  outline-offset: 3px !important;
+}
+
+/* Custom cursor elements in Light Mode (Emerald & Cyber Green) */
+html.light .custom-cursor-ring {
+  border-color: rgba(21, 128, 61, 0.55) !important;
+}
+html.light .custom-cursor-dot {
+  background-color: #15803d !important;
+  box-shadow: 0 0 8px rgba(21, 128, 61, 0.7) !important;
+}
+html.light .custom-cursor-glow {
+  background: radial-gradient(circle, rgba(21, 128, 61, 0.05) 0%, rgba(34, 197, 94, 0.02) 50%, transparent 70%) !important;
+}
+
+/* Custom smoke cursor integration for desktop pointers */
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active body,
+  html.custom-cursor-active a,
+  html.custom-cursor-active button,
+  html.custom-cursor-active [role="button"],
+  html.custom-cursor-active .cursor-pointer {
+    cursor: none !important;
+  }
+
+  /* Retain standard text cursor for inputs and editable elements */
+  html.custom-cursor-active input,
+  html.custom-cursor-active textarea,
+  html.custom-cursor-active select,
+  html.custom-cursor-active [contenteditable="true"] {
+    cursor: text !important;
   }
 }
 

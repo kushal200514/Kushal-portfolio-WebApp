@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,12 +73,37 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} dark antialiased scroll-smooth`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('portfolio-theme');
+                  var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+                  if (stored === 'light' || (!stored && prefersLight)) {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#07080b] text-[#f8fafc] font-sans selection:bg-[#d4ff00] selection:text-[#07080b]"
+        className="min-h-screen bg-[#07080b] text-[#f8fafc] font-sans selection:bg-[#d4ff00] selection:text-[#07080b] transition-colors duration-300"
       >
-        {children}
+        <ThemeProvider>
+          <CustomCursor />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
