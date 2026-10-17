@@ -11,7 +11,7 @@
 ## 📌 Overview
 Architectural portfolio web application built with **Next.js 16 (App Router)** and **React 19**, featuring interactive telemetry dashboards, verifiable competition credentials, case studies, and physics-interpolated cursor reticles.
 
-- **Live URL:** [kushalcreates.online](https://kushaldev.netlify.app/)
+- **Live URL:** [kushaldev.netlify.app](https://kushaldev.netlify.app/)
 - **Developer:** Kushal S (Computer Science & Engineering Undergrad @ CMR University, Bengaluru)
 - **LinkedIn:** [linkedin.com/in/kushal-s-9483902b8](https://www.linkedin.com/in/kushal-s-9483902b8/)
 - **GitHub:** [github.com/kushal200514](https://github.com/kushal200514)
